@@ -1,5 +1,5 @@
 {
-  "name": "@moleculeengineering/lib-jwt",
+  "name": "lib-jwt",
   "version": "1.0.0",
   "description": "Mocha Chai Framework",
   "main": "index.js",
