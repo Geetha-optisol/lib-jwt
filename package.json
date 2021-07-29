@@ -1,5 +1,5 @@
 {
-  "name": "lib-jwt",
+  "name": "lib-jwt-gen",
   "version": "1.0.0",
   "description": "Mocha Chai Framework",
   "main": "index.js",
