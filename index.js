@@ -6,7 +6,13 @@ async function verify(token) {
     try {
         return jwt.verify(token, JWT_TOKEN_SECRET, function (err, decoded) {
             if (err) return err;
-            else return decoded;
+            else {
+                if (decoded['exp'] && (new Date(decoded['exp'] * 1000) > new Date(Date.now()))) {
+                    return decoded;
+                } else {
+                    return 'EXPIRED';
+                }
+            }
         })
     } catch (exception) {
         return exception;
