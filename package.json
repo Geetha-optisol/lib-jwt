@@ -1,11 +1,12 @@
 {
   "name": "lib-jwt-gen",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Mocha Chai Framework",
   "main": "index.js",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "aws-sdk": "^2.655.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

@@ -1,9 +1,8 @@
 let jwt = require('jsonwebtoken');
-const dotenv = require('dotenv').config()
-
+const { generateSecretValue } = require('./secret');
 
 async function verify(token) {
-    let JWT_TOKEN_SECRET = process.env.JWT_TOKEN_SECRET;
+    let JWT_TOKEN_SECRET = await generateSecretValue();
     try {
         return jwt.verify(token, JWT_TOKEN_SECRET, function (err, decoded) {
             if (err) return err;
@@ -22,7 +21,7 @@ async function verify(token) {
 
 async function signJWT(userid, tenantId) {
     if (userid && tenantId) {
-        let JWT_TOKEN_SECRET = process.env.JWT_TOKEN_SECRET;
+        let JWT_TOKEN_SECRET = await generateSecretValue();
         let iat = Date.now();
         let exp = Math.round((iat / 1000) + 24 * 60 * 60);
         return jwt.sign({ name: userid, userid, tenantId, iat, exp }, JWT_TOKEN_SECRET)
